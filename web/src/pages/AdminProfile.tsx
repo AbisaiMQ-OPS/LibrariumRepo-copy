@@ -123,16 +123,7 @@ const AdminProfile: React.FC = () => {
     }
   };
 
-  const handleApproveLoan = async (loanId: string) => {
-    try {
-      await axios.post(`http://localhost:4000/loans/approve/${loanId}`);
-      fetchPendingLoans(); // Recargar la lista de solicitudes pendientes
-      alert("Préstamo aprobado con éxito.");
-    } catch (err) {
-      console.error("Error approving loan:", err);
-      alert("No se pudo aprobar el préstamo.");
-    }
-  };
+
 
   const handleRejectLoan = async (loanId: string) => {
     const confirmar = window.confirm("¿Estás seguro de que deseas rechazar esta solicitud de préstamo?");

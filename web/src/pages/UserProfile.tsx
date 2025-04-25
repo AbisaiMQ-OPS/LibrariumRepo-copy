@@ -78,26 +78,7 @@ const UserProfile: React.FC = () => {
     }
   };
 
-  const solicitarPrestamoDesdeReserva = async (bookId: string) => {
-    try {
-      const userId = user?.id || user?._id;
-      const response = await axios.post("http://localhost:4000/loans/request-loan", {
-        userId,
-        bookId,
-      });
 
-      if (response.status === 201) {
-        alert("Préstamo realizado con éxito");
-        fetchLoans(userId!);
-        fetchReservations(userId!);
-      } else {
-        alert("No se pudo realizar el préstamo");
-      }
-    } catch (error) {
-      console.error("Error al prestar libro:", error);
-      alert("Error al solicitar préstamo");
-    }
-  };
 
   const handleDeleteReservation = async (reservationId: string) => {
     const confirmar = window.confirm("¿Estás seguro de que deseas eliminar esta reserva?");
